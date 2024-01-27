@@ -13,16 +13,29 @@ dependencies:
   cupertino_icons: ^1.0.2
 
 #Core Dependencies
-  kartal: ^3.5.0
-  vexana: ^3.5.4
+  easy_localization: ^3.0.3
+
+
+# Network
+  vexana: ^4.0.0-dev6
+
+
+#Config
   equatable: ^2.0.5
-  json_annotation: ^4.8.1
-  envied: ^0.5.3
+
+
+# utility
+  logger: ^2.0.2+1
+  easy_logger: ^0.0.2
+  kartal: ^3.5.0
+  google_fonts: ^6.1.0
 
 
 #dependency_overrides:
 # cupertino_icons: ^1.0.1
 
+  gen:
+    path: module/gen
 
 dev_dependencies:
   flutter_test:
@@ -30,38 +43,11 @@ dev_dependencies:
   json_serializable: ^6.7.1
   build_runner: ^2.4.8
   very_good_analysis: ^5.1.0
-  flutter_gen_runner: ^5.4.0
   flutter_launcher_icons: ^0.13.1
-
-
-# flutter_gen:
-#   output: lib/gen/ # Optional (default: lib/gen/)
-#   line_length: 80 # Optional (default: 80)
-#   integrations:
-#     flutter_svg: true
-#     flare_flutter: true
-#     rive: true
-#     lottie: true
-
-
-# flutter_launcher_icons:
-#   android: "launcher_icon"
-#   ios: true
-#   image_path: "assets/icon/icon.png"
-#   min_sdk_android: 21 
-  # web:
-  #   generate: true
-  #   image_path: "path/to/image.png"
-  #   background_color: "#hexcode"
-  #   theme_color: "#hexcode"
-  # windows:
-  #   generate: true
-  #   image_path: "path/to/image.png"
-  #   icon_size: 48 # min:48, max:256, default: 48
-  # macos:
-  #   generate: true
-  #   image_path: "path/to/image.png"
 
 
 flutter:
   uses-material-design: true
+
+  assets:
+    - asset/translations/
