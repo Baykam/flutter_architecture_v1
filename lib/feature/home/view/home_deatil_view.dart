@@ -1,3 +1,4 @@
+import 'package:architecture_template/product/utility/constants/enums/images.dart';
 import 'package:architecture_template/product/widgets/custom_network_image.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +17,7 @@ final class HomeDetailView extends StatelessWidget {
       body: ListView(
         children: [
           ProjectNetworkImage(
-            url: "",
+            url: ImageUrls.google.url,
           )
         ],
       ),

@@ -5,6 +5,7 @@ import 'package:architecture_template/product/init/theme/custom_light_theme.dart
 import 'package:architecture_template/product/navigation/app_router.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:widgets/widgets.dart';
 
 Future<void> main() async {
   await ApplicationInitialize().make();
@@ -25,6 +26,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp.router(
       theme: CustomLightTheme().themeData,
       darkTheme: CustomDarkTheme().themeData,
+      builder: CustomResponsive.build,
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,
