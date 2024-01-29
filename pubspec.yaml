@@ -30,18 +30,27 @@ dependencies:
   kartal: ^3.5.0
   google_fonts: ^6.1.0
 
+# Router
+  auto_route: ^7.8.4 
+
 
 #dependency_overrides:
 # cupertino_icons: ^1.0.1
 
+
+# Modules
   gen:
     path: module/gen
+
+  common:
+    path: module/common  
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   json_serializable: ^6.7.1
   build_runner: ^2.4.8
+  auto_route_generator: ^7.3.2
   very_good_analysis: ^5.1.0
   flutter_launcher_icons: ^0.13.1
 
