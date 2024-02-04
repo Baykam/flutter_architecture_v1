@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:architecture_template/product/init/config/app_environment.dart';
+import 'package:core/core.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:easy_logger/easy_logger.dart';
 import 'package:flutter/material.dart';
@@ -26,12 +26,7 @@ final class ApplicationInitialize {
     EasyLocalization.logger.enableLevels = [LevelMessages.error];
     await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     await DeviceUtility.instance.initPackageInfo();
-    AppEnvironment.general();
-    // FlutterError.onError = (details) {
-    //   ///crashlytics  log insert here
-    //   ///custom service logger
-    //   /// Todo: add custom logger
-    //   Logger().e(details.exceptionAsString());
-    // };
+
+    await SharedManager.i.init();
   }
 }

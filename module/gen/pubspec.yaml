@@ -1,7 +1,7 @@
 name: gen
 description: "A new Flutter package project."
 version: 0.0.1
-homepage:
+homepage: "none"
 
 environment:
   sdk: '>=3.2.2 <4.0.0'
@@ -16,6 +16,7 @@ dependencies:
   equatable: ^2.0.5
   # flutter_gen: ^5.4.0
   flutter_svg: ^2.0.9
+  uuid: ^3.0.0
 
 
 dev_dependencies:
@@ -51,6 +52,9 @@ flutter:
     - assets/color/
     - assets/icons/
     - assets/lottie/
+
+
+uses-material-design: true    
 
   # fonts:
   #   - family: Raleway

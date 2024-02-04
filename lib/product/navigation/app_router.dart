@@ -1,4 +1,5 @@
 import 'package:architecture_template/product/navigation/app_router.gr.dart';
+import 'package:architecture_template/product/navigation/auth/auth_guard.dart';
 import 'package:auto_route/auto_route.dart';
 
 @AutoRouterConfig(replaceInRouteName: 'View,Route')
@@ -11,7 +12,6 @@ class AppRouter extends $AppRouter {
           page: TabNavigationRoute.page,
           path: '/navigation',
           initial: true,
-          // usesPathAsKey: true,
           children: [
             AutoRoute(
               page: HomeAutoRouterRoute.page,
@@ -30,6 +30,7 @@ class AppRouter extends $AppRouter {
                 ),
                 AutoRoute(
                   page: HomeDetailRoute.page,
+                  fullMatch: true,
                 ),
               ],
             ),
@@ -44,16 +45,20 @@ class AppRouter extends $AppRouter {
             ),
             AutoRoute(
               page: ProfileAutoRouterRoute.page,
-              // usesPathAsKey: true,
               children: [
                 AutoRoute(
                   page: ProfileRoute.page,
                   initial: true,
+                  guards: [
+                    AuthGuard(),
+                  ],
                 ),
               ],
             ),
           ],
         ),
-        AutoRoute(page: AuthRoute.page)
+        AutoRoute(
+          page: AuthRoute.page,
+        ),
       ];
 }

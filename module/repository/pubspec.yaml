@@ -1,0 +1,28 @@
+name: repository
+description: "A new Flutter package project."
+version: 0.0.1
+homepage: "none"
+
+environment:
+  sdk: '>=3.2.2 <4.0.0'
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  dio: ^5.4.0
+  http: ^1.2.0
+  dartz: ^0.10.1
+  uuid: ^3.0.7
+
+  gen:
+    path: ../gen
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  very_good_analysis: ^5.1.0
+
+
+
+flutter:

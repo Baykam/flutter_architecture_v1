@@ -1,4 +1,3 @@
-import 'package:architecture_template/product/init/config/app_environment.dart';
 import 'package:architecture_template/product/init/language/locale_keys.g.dart';
 import 'package:architecture_template/product/init/product_localization.dart';
 import 'package:architecture_template/product/navigation/app_router.gr.dart';
@@ -30,8 +29,8 @@ class _HomeViewState extends State<HomeView> {
               package: 'gen',
             ),
             Assets.icons.icCamel.svg(package: 'gen'),
-            ElevatedButton(
-                onPressed: () {}, child: Text(AppEnvironment.apiKey)),
+            // ElevatedButton(
+            //     onPressed: () {}, child: Text(AppEnvironment.apiKey)),
             const Text(LocaleKeys.general_dialog_version_title).tr(),
             ElevatedButton(
               onPressed: () {
