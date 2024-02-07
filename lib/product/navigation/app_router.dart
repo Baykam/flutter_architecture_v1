@@ -12,6 +12,9 @@ class AppRouter extends $AppRouter {
           page: TabNavigationRoute.page,
           path: '/navigation',
           initial: true,
+          // guards: [
+          //   AuthGuard(),
+          // ],
           children: [
             AutoRoute(
               page: HomeAutoRouterRoute.page,
@@ -49,9 +52,6 @@ class AppRouter extends $AppRouter {
                 AutoRoute(
                   page: ProfileRoute.page,
                   initial: true,
-                  guards: [
-                    AuthGuard(),
-                  ],
                 ),
               ],
             ),

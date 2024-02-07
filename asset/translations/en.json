@@ -12,5 +12,12 @@
                 "content":"Version Information"
             }
         }
+    },
+    "bottomNavigationBar":{
+        "buttonTitle":{
+            "home":"Home",
+            "favorite":"Favorite",
+            "profile":"Profile"
+        }
     }
 }

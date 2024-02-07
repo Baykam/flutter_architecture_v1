@@ -1,3 +1,4 @@
+import 'package:architecture_template/product/init/language/locale_keys.g.dart';
 import 'package:architecture_template/product/navigation/app_router.gr.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
@@ -26,10 +27,11 @@ class TabNavigationView extends StatelessWidget {
               AutoTabsRouter.of(context).setActiveIndex(newIndex),
           items: const [
             BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.abc_sharp,
-                ),
-                label: "home"),
+              icon: Icon(
+                Icons.abc_sharp,
+              ),
+              label: LocaleKeys.general_button_save,
+            ),
             BottomNavigationBarItem(
                 icon: Icon(
                   Icons.abc_sharp,

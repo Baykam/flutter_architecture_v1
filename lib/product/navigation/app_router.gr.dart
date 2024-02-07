@@ -13,7 +13,7 @@ import 'package:architecture_template/feature/dash_board/dash_board_view.dart'
     as _i2;
 import 'package:architecture_template/feature/favorite/view/favorite_view.dart'
     as _i3;
-import 'package:architecture_template/feature/home/view/home_deatil_view.dart'
+import 'package:architecture_template/feature/home/view/home_detail_view.dart'
     as _i4;
 import 'package:architecture_template/feature/home/view/home_view.dart' as _i5;
 import 'package:architecture_template/feature/profile/view/profile_view.dart'
@@ -55,8 +55,8 @@ abstract class $AppRouter extends _i7.RootStackRouter {
       return _i7.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: _i4.HomeDetailView(
-          key: args.key,
           id: args.id,
+          key: args.key,
         ),
       );
     },
@@ -147,14 +147,14 @@ class HomeAutoRouterRoute extends _i7.PageRouteInfo<void> {
 /// [_i4.HomeDetailView]
 class HomeDetailRoute extends _i7.PageRouteInfo<HomeDetailRouteArgs> {
   HomeDetailRoute({
-    _i8.Key? key,
     required int id,
+    _i8.Key? key,
     List<_i7.PageRouteInfo>? children,
   }) : super(
           HomeDetailRoute.name,
           args: HomeDetailRouteArgs(
-            key: key,
             id: id,
+            key: key,
           ),
           initialChildren: children,
         );
@@ -167,17 +167,17 @@ class HomeDetailRoute extends _i7.PageRouteInfo<HomeDetailRouteArgs> {
 
 class HomeDetailRouteArgs {
   const HomeDetailRouteArgs({
-    this.key,
     required this.id,
+    this.key,
   });
-
-  final _i8.Key? key;
 
   final int id;
 
+  final _i8.Key? key;
+
   @override
   String toString() {
-    return 'HomeDetailRouteArgs{key: $key, id: $id}';
+    return 'HomeDetailRouteArgs{id: $id, key: $key}';
   }
 }
 

@@ -10,7 +10,7 @@ class AuthGuard extends AutoRouteGuard {
     NavigationResolver resolver,
     StackRouter router,
   ) async {
-    String? isAuthenticated =
+    final isAuthenticated =
         await SharedManager.i.getString(SharedPrefs.auth.value);
 
     if (isAuthenticated != null && isAuthenticated.isNotEmpty) {
