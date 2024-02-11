@@ -1,11 +1,8 @@
-import 'package:architecture_template/product/init/language/locale_keys.g.dart';
-import 'package:architecture_template/product/init/product_localization.dart';
-import 'package:architecture_template/product/navigation/app_router.gr.dart';
-import 'package:architecture_template/product/utility/constants/enums/locales.dart';
+import 'package:architecture_template/product/state/posts/posts_bloc.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:gen/gen.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:repository/repository.dart';
 
 part 'mixin/home_view_mixin.dart';
 
@@ -20,28 +17,69 @@ final class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> with _HomeViewMixin {
   @override
   Widget build(BuildContext context) {
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => PostsBloc(_posts),
+        ),
+      ],
+      child: HomeUi(posts: _posts),
+    );
+  }
+}
+
+class HomeUi extends StatelessWidget {
+  const HomeUi({
+    super.key,
+    required this.posts,
+  });
+  final RepositoryPosts posts;
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
       body: SingleChildScrollView(
         child: Column(
-          mainAxisSize: MainAxisSize.min,
           children: [
-            Assets.lottie.animeZombi.lottie(
-              package: 'gen',
-            ),
-            Assets.icons.icCamel.svg(package: 'gen'),
-            const Text(LocaleKeys.general_dialog_version_title).tr(),
-            ElevatedButton(
-              onPressed: _onPressedChangeLan,
-              child: const Text(LocaleKeys.general_button_save).tr(),
-            ),
-            OutlinedButton(
-              onPressed: () => context.router.push(HomeDetailRoute(id: 1)),
-              child: const Text('go next page'),
-            ),
+            _ListOfPosts(),
           ],
         ),
       ),
+    );
+  }
+
+  BlocBuilder<PostsBloc, PostsState> _ListOfPosts() {
+    return BlocBuilder<PostsBloc, PostsState>(
+      bloc: PostsBloc(posts)..add(const GetPosts()),
+      builder: (context, state) {
+        if (state is Loading) {
+          return const CircularProgressIndicator();
+        }
+        if (state is Failed) {
+          return Center(
+            child: Text(state.message),
+          );
+        }
+        if (state is Success) {
+          return Column(
+            children: state.posts
+                .map(
+                  (e) => ListTile(
+                    leading: const Icon(Icons.radar),
+                    trailing: IconButton(
+                      onPressed: () {},
+                      icon: const Icon(Icons.add),
+                    ),
+                    subtitle: Text(e.title ?? ''),
+                    title: Text(e.body ?? ''),
+                  ),
+                )
+                .toList(),
+          );
+        }
+        return const SizedBox();
+      },
     );
   }
 }

@@ -24,4 +24,16 @@ final class NetworkManager {
       },
     ));
   }
+
+  bool whichStatus({
+    required int? status,
+  }) {
+    if (status == HttpStatus.accepted ||
+        status == HttpStatus.ok ||
+        status == HttpStatus.created) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
