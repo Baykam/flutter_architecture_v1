@@ -1,4 +1,7 @@
+import 'package:architecture_template/feature/favorite/view/favorite_view.dart';
 import 'package:architecture_template/feature/home/view/home_view.dart';
+import 'package:architecture_template/feature/profile/view/profile_view.dart';
+import 'package:architecture_template/product/navigation_go/auth/auth_guard.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -32,16 +35,25 @@ final class ApplicationGoRouter {
             ],
           ),
           StatefulShellBranch(
-            routes: [],
+            routes: [
+              GoRoute(
+                path: 'favorite',
+                builder: (context, state) => const FavoriteView(),
+              ),
+            ],
           ),
           StatefulShellBranch(
-            routes: [],
-          ),
-          StatefulShellBranch(
-            routes: [],
+            routes: [
+              GoRoute(
+                path: 'profile',
+                builder: (context, state) => const ProfileView(),
+              ),
+            ],
           ),
         ],
       ),
     ],
+    redirect: (context, state) async =>
+        await GoAuthGuard().authGuard(context, state),
   );
 }
