@@ -34,13 +34,6 @@ final class ApplicationInitialize {
     );
   }
 
-  ///when app in run in process
-  // Future<void> make() async {
-  //   await runZonedGuarded<Future<void>>(_initialize, (error, stack) {
-  //     Logger().e(error.toString());
-  //   });
-  // }
-
   ///initialize method for app when starting
   Future<void> _initialize() async {
     WidgetsFlutterBinding.ensureInitialized();
